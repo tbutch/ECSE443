@@ -1,0 +1,26 @@
+%======================================================================
+% Function ---- LUfactorization(coefficientMatrix)
+% Description - Compute Lower and Upper triangular matrices using LU
+%               factorization
+% Arguments --- coefficientMatrix: Square matrix with coefficients
+% Returns ----- data points with time, to plot
+% Author ------ Tristan Bouchard
+% Date -------- February 22, 2019
+%======================================================================
+function [LMatrix,UMatrix] = LUfactorization(coefficientMatrix)
+n = length(coefficientMatrix);
+% Initialize matrices: Make U equivalent to the coefficient matrix, and L
+% the identity matrix
+U = coefficientMatrix;
+L = eye(n);
+
+% Iterate over columns, then rows
+for j = 1:n-1
+    for i = j + 1 : n
+        multipliers = (U(i,j)/U(j, i));
+        L(i,j) = 
+    end   
+end
+
+end
+
