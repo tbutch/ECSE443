@@ -3,7 +3,7 @@
 %               upperBoundX, lowerBoundY, upperboundY, trueValue, precision,
 %               stepStart) 
 % Description - Computes the definite double integral of a
-%               specified function using the discrete Mid-point method.
+%               specified function using the discrete Simpson method.
 % Arguments --- func: The function to which we are trying to calculate the
 %               integral, given as a symbolic expression.
 %               lowerBoundX: Lower bound of the definite integral in x
@@ -94,7 +94,5 @@ function [computedValue, intervalsX] = integralSimpsonDouble(func, lowerBoundX, 
     end
     computedValue = outerSum;
     intervalsX = intervalEndsX;
-
-
 end
 
