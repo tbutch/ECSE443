@@ -2,7 +2,7 @@
 % Function ---- secantRootFinding(func)
 % Description - Computes the roots of a function based on the secant
 %               method
-% Arguments --- func: The discretefunction to which we are trying to 
+% Arguments --- func: The discrete function to which we are trying to 
 %               calculate the roots, given as a data array
 %               x0: Interval start
 %               x1: Interval end
