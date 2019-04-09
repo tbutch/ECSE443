@@ -10,7 +10,7 @@
 % Date -------- February 22, 2019
 %======================================================================
 function scatterPoints = computeQuadraticScatter(time, coefficients)
-    data = zeros(length(time));
+    data = zeros(length(time),1);
     for i = 1:length(time)
         data(i, 1) = [1 time(i, 1) time(i,1)^2]*coefficients;
     end
