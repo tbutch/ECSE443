@@ -25,18 +25,16 @@ function ODEPoints = rungeKutta4(y0, u0, time,ufunc, yfunc)
         u = points(i,2);
         t = time(i);
         
-        % K's for y
+        % K's and L's for y and u
         k1 = ufunc(t,u,y);
-        k2 = ufunc(t + h/2, u + ((h*k1)/2), y + ((h*k1)/2));
-        k3 = ufunc(t + h/2, u + ((h*k2)/2), y + ((h*k2)/2));
-        k4 = ufunc(t + h, u + (k3 * h), y + (k3 * h));
-        
-        %K's for u
         l1 = yfunc(t,u,y);
-        l2 = yfunc(t + h/2, u + ((h*l1)/2), y + ((h*l1)/2));
-        l3 = yfunc(t + h/2, u + ((h*l2)/2), y + ((h*l2)/2));
-        l4 = yfunc(t + h, u + (l3 * h), y + (l3 * h));
-        
+        k2 = ufunc(t + h/2, u + ((h*l1)/2), y + ((h*k1)/2));
+        l2 = yfunc(t + h/2, u + ((h*l1)/2), y + ((h*k1)/2));
+        k3 = ufunc(t + h/2, u + ((h*l2)/2), y + ((h*k2)/2));
+        l3 = yfunc(t + h/2, u + ((h*l2)/2), y + ((h*k2)/2));
+        k4 = ufunc(t + h, u + (l3 * h), y + (k3 * h));
+        l4 = yfunc(t + h, u + (l3 * h), y + (k3 * h));
+
         points(i+1,1) = points(i, 1) + (h/6)*(k1 + 2*k2 + 2*k3 + k4);
         points(i+1,2) = points(i, 2) + (h/6)*(l1 + 2*l2 + 2*l3 + l4);
     end
